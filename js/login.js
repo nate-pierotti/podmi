@@ -1,5 +1,7 @@
 function login() {
     
+    alert("Hey");
+    
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
     
@@ -12,7 +14,6 @@ function login() {
             console.log("Login Failed!", error);
         } else {
             console.log("Authenticated successfully with payload:", authData);
-            location.href = "www.youtube.com"
         }
     });
 }
