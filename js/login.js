@@ -1,19 +1,20 @@
 function login() {
     
-    alert("Hey");
+    var userEmail = document.getElementById("email").value;
+    var userPassword = document.getElementById("password").value;
     
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    
-    var ref = new Firebase("https://popping-heat-9236.firebaseio.com/");
+    var ref = new Firebase("https://blinding-torch-889.firebaseio.com");
     ref.authWithPassword({
-        email: email,
-        password: password
+        email: userEmail,
+        password: userPassword
     }, function(error, userData) {
         if (error) {
-            console.log("Login Failed!", error);
+            console.log("Login Failed!", error)
+            
+            window.alert("Login Failed");
         } else {
-            console.log("Authenticated successfully with payload:", authData);
+            window.alert("successful");
+            window.location.assign("https://senior-design-nate-pierotti.c9users.io/user.homepage.html");
         }
     });
 }

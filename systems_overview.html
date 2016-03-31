@@ -1,50 +1,596 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script src='https://cdn.firebase.com/js/client/2.4.1/firebase.js'></script>
+  <script src='js/system_control.js'></script>
+  <script src='js/test.js'></script>
+  <script>
+    $(document).ready(function() {
+      $('select').material_select();
+    });
+  </script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
   <title>Parallax Template - Materialize</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/custom.css" />
 </head>
-<body>
-    <nav class="white" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="https://senior-design-nate-pierotti.c9users.io/index.html" class="brand-logo">Podmi</a>
+
+<body background = "podmi-background.jpg">
+  <nav class="black light-green-text accent-1" role="navigation">
+    <div class="nav-wrapper container light-green-text accent-1 ">
+      <a id="logo-container" href="https://senior-design-nate-pierotti.c9users.io/index.html" class="brand-logo light-green-text accent-1">Podmi</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">Login</a></li>
-        <li><a href="https://senior-design-nate-pierotti.c9users.io/signup.html">Sign Up</a></li>
+        <li><a href="sass.html"><i class="material-icons">search</i></a></li>
+        <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
+        <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
+        <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
+        
       </ul>
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Sign up</a></li>
+      <ul id="nav-mobile" class="side-nav light-green-text accent-1">
+        <li><a href="sass.html"><i class="material-icons icon-white">search</i></a></li>
+        <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
+        <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
+        <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
   </nav>
-  
- <div class="row">
 
-      <div class="col s3">
-        <!-- Grey navigation panel -->
-          <div class="collection">
-            <a href="#!" class="collection-item">Alvin</a>
-            <a href="#!" class="collection-item active">Alvin</a>
-            <a href="#!" class="collection-item">Alvin</a>
-            <a href="#!" class="collection-item">Alvin</a>
+  <div class="row">
+    <div class="col s3">
+      <!-- Grey navigation panel -->
+      <div class="collection light-green accent-1">
+        <a href="#!" class="collection-item white black-text">System 1</a>
+        <a href="#!" class="collection-item active white black-text">System 2</a>
+      </div>
+    </div>
+
+    <div class="col s9 white">
+      <!-- Teal page content  -->
+      <!-- Switch -->
+      <div class="row">
+        <center>
+          <div class="divider"></div>
+          <div class="section">
+            <h5> Add a New System     <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a></h5>
+            <br></br>
+            <div class="card-panel light-blue lighten-4 black-text">
+              <h5>System Overview <i class="small material-icons">language</i></h5></div>
+            <p>Total Current Draw:</p>
+            <br></br>
+            <p> How Green is Your System?</p>
           </div>
-            
+          <div class="divider"></div>
+          <div class="divider"></div>
+          <div class="section">
+            <div class="card-panel light-blue lighten-4 black-text" background= "water-background.jpg">
+              <h5> Water Cycles <i class="small material-icons">loop</i></h5></div>
+            <br></br>
+            <h5>Watering Cycle 1</h5>
+            <p>
+              <div class="input-field col s6">
+                <select id="watering_cycle1_duration">>
+                  <option value="" disabled selected>Select The Watering Duration</option>
+                  <option value="5">5 Minutes</option>
+                  <option value="10">10 Minutes</option>
+                  <option value="15">15 Minutes</option>
+                  <option value="20">20 Minutes</option>
+                  <option value="25">25 Minutes</option>
+                  <option value="30">30 Minutes</option>
+                  <option value="35">35 Minutes</option>
+                  <option value="40">40 Minutes</option>
+                  <option value="45">45 Minutes</option>
+                  <option value="50">50 Minutes</option>
+                  <option value="55">55 Minutes</option>
+                </select>
+              </div>
+              <div class="input-field col s6">
+                <select id= "watering_cycle1_frequency">>
+                  <option value="" disabled selected>Select The Frequency</option>
+                  <option value="5"> Every 15 Minutes</option>
+                  <option value="10"> Every 30 Minutes</option>
+                  <option value="15"> Every 45 Minutes</option>
+                  <option value="20"> Every Hour</option>
+                  <option value="25"> Every Hour And 15 Minutes</option>
+                  <option value="30"> Every Hour And a Half</option>
+                  <option value="35"> Every Hour and 45 Minutes</option>
+                  <option value="40"> Every 2 Hours</option>
+                  <option value="45"> Every 3 Hours</option>
+                  <option value="50"> Every 4 Hours</option>
+                  <option value="55"> Every 5 </option>
+                </select>
+              </div>
+            </p>
+           <h5>Watering Cycle 2</h5>
+            <p>
+              <div class="input-field col s6">
+                <select id= "watering_cycle2_duration">
+                  <option value="" disabled selected>Select The Watering Duration</option>
+                  <option value="5">5 Minutes</option>
+                  <option value="10">10 Minutes</option>
+                  <option value="15">15 Minutes</option>
+                  <option value="20">20 Minutes</option>
+                  <option value="25">25 Minutes</option>
+                  <option value="30">30 Minutes</option>
+                  <option value="35">35 Minutes</option>
+                  <option value="40">40 Minutes</option>
+                  <option value="45">45 Minutes</option>
+                  <option value="50">50 Minutes</option>
+                  <option value="55">55 Minutes</option>
+                </select>
+              </div>
+              <div class="input-field col s6">
+                <select id= "watering_cycle2_frequency">
+                  <option value="" disabled selected>Select The Frequency</option>
+                  <option value="5"> Every 15 Minutes</option>
+                  <option value="10"> Every 30 Minutes</option>
+                  <option value="15"> Every 45 Minutes</option>
+                  <option value="20"> Every Hour</option>
+                  <option value="25"> Every Hour And 15 Minutes</option>
+                  <option value="30"> Every Hour And a Half</option>
+                  <option value="35"> Every Hour and 45 Minutes</option>
+                  <option value="40"> Every 2 Hours</option>
+                  <option value="45"> Every 3 Hours</option>
+                  <option value="50"> Every 4 Hours</option>
+                  <option value="55"> Every 5 </option>
+                </select>
+              </div>
+            </p>
+            <h5>Watering Cycle 3</h5>
+            <p>
+              <div class="input-field col s6">
+                <select id= "watering_cycle3_duration">>
+                  <option value="" disabled selected>Select The Watering Duration</option>
+                  <option value="5">5 Minutes</option>
+                  <option value="10">10 Minutes</option>
+                  <option value="15">15 Minutes</option>
+                  <option value="20">20 Minutes</option>
+                  <option value="25">25 Minutes</option>
+                  <option value="30">30 Minutes</option>
+                  <option value="35">35 Minutes</option>
+                  <option value="40">40 Minutes</option>
+                  <option value="45">45 Minutes</option>
+                  <option value="50">50 Minutes</option>
+                  <option value="55">55 Minutes</option>
+                </select>
+              </div>
+              <div class="input-field col s6">
+                <select id= "watering_cycle3_frequency">>
+                  <option value="" disabled selected>Select The Frequency</option>
+                  <option value="5"> Every 15 Minutes</option>
+                  <option value="10"> Every 30 Minutes</option>
+                  <option value="15"> Every 45 Minutes</option>
+                  <option value="20"> Every Hour</option>
+                  <option value="25"> Every Hour And 15 Minutes</option>
+                  <option value="30"> Every Hour And a Half</option>
+                  <option value="35"> Every Hour and 45 Minutes</option>
+                  <option value="40"> Every 2 Hours</option>
+                  <option value="45"> Every 3 Hours</option>
+                  <option value="50"> Every 4 Hours</option>
+                  <option value="55"> Every 5 </option>
+                </select>
+              </div>
+            </p>
+            <br></br>            
+          </div>
+          <div class="divider"></div>
+          <div class="section">
+            <div class="card-panel light-blue lighten-4 black-text">
+              <h5>Light Cycles <i class="small material-icons">loop</i></h5>
+            </div>
+            <div class="section">
+              <h5>Lighting Cycle 1</h5>
+              <p>
+                <div class="switch">
+                  <label class= "text-black">
+                    Lights Off
+                    <input type="checkbox" id="light1_on_off_actual_switch" onchange="fbUpdateLight1OnDesired(this.checked)">
+                    <span class="lever"></span>
+                    Lights On
+                  </label>
+                </div>
+                <div class="switch">
+                  <label>
+                    Manual Mode Off
+                    <input type="checkbox">
+                    <span class="lever"></span>
+                    Manual Mode On
+                  </label>
+                </div>
+              </p>
+              <p> Time Lights Turn on:
+                <div class="input-field col s6">
+                  <select id="Light1_TurnOn_Hour" onchange="fbUpdateLight1OnHour(this.value)">
+                    <option value="" disabled selected>Select The Hour</option>
+                    <option value="24"> 12 A.M.</option>
+                    <option value="1"> 1 A.M. </option>
+                    <option value="2"> 2 A.M.</option>
+                    <option value="3"> 3 A.M.</option>
+                    <option value="4"> 4 A.M. </option>
+                    <option value="5"> 5 A.M.</option>
+                    <option value="6"> 6 A.M.</option>
+                    <option value="7"> 7 A.M. </option>
+                    <option value="8"> 8 A.M.</option>
+                    <option value="9"> 9 A.M.</option>
+                    <option value="10"> 10 A.M. </option>
+                    <option value="11"> 11 A.M.</option>
+                    <option value="12"> 12 P.M.</option>
+                    <option value="13"> 1 P.M. </option>
+                    <option value="14"> 2 P.M.</option>
+                    <option value="15"> 3 P.M.</option>
+                    <option value="16"> 4 P.M. </option>
+                    <option value="17"> 5 P.M.</option>
+                    <option value="18"> 6 P.M.</option>
+                    <option value="19"> 7 P.M. </option>
+                    <option value="20"> 8 P.M.</option>
+                    <option value="21"> 9 P.M.</option>
+                    <option value="22"> 10 P.M. </option>
+                    <option value="23"> 11 P.M.</option>
+                  </select>
+                </div>
+                <div class="input-field col s6">
+                  <select id= "Light1_TurnOn_Minute" onchange="fbUpdateLight1OnMinute(this.value)">
+                    <option value="" disabled selected>Select The Minute</option>
+                    <option value="5"> 05</option>
+                    <option value="10"> 10</option>
+                    <option value="15"> 15</option>
+                    <option value="20"> 20</option>
+                    <option value="25"> 25</option>
+                    <option value="30"> 30</option>
+                    <option value="35"> 35</option>
+                    <option value="40"> 40</option>
+                    <option value="45"> 45</option>
+                    <option value="50"> 50</option>
+                    <option value="55"> 55</option>
+                  </select>
+                </div>
+                <br></br>
+              </p>
+              <p> Time Lights Turn off:
+                <div class="input-field col s6">
+                  <select id="Light1_TurnOff_Hour" onchange="fbUpdateLight1OffHour(this.value)">
+                    <option value="" disabled selected>Select The Hour</option>
+                    <option value="24"> 12 A.M.</option>
+                    <option value="1"> 1 A.M. </option>
+                    <option value="2"> 2 A.M.</option>
+                    <option value="3"> 3 A.M.</option>
+                    <option value="4"> 4 A.M. </option>
+                    <option value="5"> 5 A.M.</option>
+                    <option value="6"> 6 A.M.</option>
+                    <option value="7"> 7 A.M. </option>
+                    <option value="8"> 8 A.M.</option>
+                    <option value="9"> 9 A.M.</option>
+                    <option value="10"> 10 A.M. </option>
+                    <option value="11"> 11 A.M.</option>
+                    <option value="12"> 12 P.M.</option>
+                    <option value="13"> 1 P.M. </option>
+                    <option value="14"> 2 P.M.</option>
+                    <option value="15"> 3 P.M.</option>
+                    <option value="16"> 4 P.M. </option>
+                    <option value="17"> 5 P.M.</option>
+                    <option value="18"> 6 P.M.</option>
+                    <option value="19"> 7 P.M. </option>
+                    <option value="20"> 8 P.M.</option>
+                    <option value="21"> 9 P.M.</option>
+                    <option value="22"> 10 P.M.</option>
+                    <option value="23"> 11 P.M.</option>
+                  </select>
+                </div>
+                <div class="input-field col s6">
+                  <select id= "Light1_TurnOff_Minute" onchange="fbUpdateLight1OffMinute(this.value)">
+                    <option value="" disabled selected>Select The Minute</option>
+                    <option value="5"> 05</option>
+                    <option value="10"> 10</option>
+                    <option value="15"> 15</option>
+                    <option value="20"> 20</option>
+                    <option value="25"> 25</option>
+                    <option value="30"> 30</option>
+                    <option value="35"> 35</option>
+                    <option value="40"> 40</option>
+                    <option value="45"> 45</option>
+                    <option value="50"> 50</option>
+                    <option value="55"> 55</option>
+                  </select>
+                </div>
+              </p>
+              <br></br>
+              <h5>Lighting Cycle 2</h5>
+              <p>
+                <div class="switch">
+                  <label class= "text-black">
+                    Lights Off
+                    <input type="checkbox">
+                    <span class="lever"></span>
+                    Lights On
+                  </label>
+                </div>
+                <div class="switch">
+                  <label>
+                    Manual Mode Off
+                    <input type="checkbox">
+                    <span class="lever"></span>
+                    Manual Mode On
+                  </label>
+                </div>
+              </p>              
+              <p> Time Lights Turn on:
+                <div class="input-field col s6">
+                  <select id= "Light2_TurnOn_Hour">
+                    <option value="" disabled selected>Select The Hour</option>
+                    <option value="24"> 12 A.M.</option>
+                    <option value="1"> 1 A.M. </option>
+                    <option value="2"> 2 A.M.</option>
+                    <option value="3"> 3 A.M.</option>
+                    <option value="4"> 4 A.M. </option>
+                    <option value="5"> 5 A.M.</option>
+                    <option value="6"> 6 A.M.</option>
+                    <option value="7"> 7 A.M. </option>
+                    <option value="8"> 8 A.M.</option>
+                    <option value="9"> 9 A.M.</option>
+                    <option value="10"> 10 A.M. </option>
+                    <option value="11"> 11 A.M.</option>
+                    <option value="12"> 12 P.M.</option>
+                    <option value="13"> 1 P.M. </option>
+                    <option value="14"> 2 P.M.</option>
+                    <option value="15"> 3 P.M.</option>
+                    <option value="16"> 4 P.M. </option>
+                    <option value="17"> 5 P.M.</option>
+                    <option value="18"> 6 P.M.</option>
+                    <option value="19"> 7 P.M. </option>
+                    <option value="20"> 8 P.M.</option>
+                    <option value="21"> 9 P.M.</option>
+                    <option value="22"> 10 P.M. </option>
+                    <option value="23"> 11 P.M.</option>
+                  </select>
+                </div>
+                <div class="input-field col s6">
+                  <select id= "Light2_TurnOn_Minute">
+                    <option value="" disabled selected>Select The Minute</option>
+                    <option value="05"> 05</option>
+                    <option value="10"> 10</option>
+                    <option value="15"> 15</option>
+                    <option value="20"> 20</option>
+                    <option value="25"> 25</option>
+                    <option value="30"> 30</option>
+                    <option value="35"> 35</option>
+                    <option value="40"> 40</option>
+                    <option value="45"> 45</option>
+                    <option value="50"> 50</option>
+                    <option value="55"> 55</option>
+                  </select>
+                </div>
+                <br></br>
+              </p>
+              <p> Time Lights Turn off:
+                <div class="input-field col s6">
+                  <select id="Light2_TurnOff_Hour">
+                    <option value="" disabled selected>Select The Hour</option>
+                    <option value="24"> 12 A.M.</option>
+                    <option value="1"> 1 A.M. </option>
+                    <option value="2"> 2 A.M.</option>
+                    <option value="3"> 3 A.M.</option>
+                    <option value="4"> 4 A.M. </option>
+                    <option value="5"> 5 A.M.</option>
+                    <option value="6"> 6 A.M.</option>
+                    <option value="7"> 7 A.M. </option>
+                    <option value="8"> 8 A.M.</option>
+                    <option value="9"> 9 A.M.</option>
+                    <option value="10"> 10 A.M. </option>
+                    <option value="11"> 11 A.M.</option>
+                    <option value="12"> 12 P.M.</option>
+                    <option value="13"> 1 P.M. </option>
+                    <option value="14"> 2 P.M.</option>
+                    <option value="15"> 3 P.M.</option>
+                    <option value="16"> 4 P.M. </option>
+                    <option value="17"> 5 P.M.</option>
+                    <option value="18"> 6 P.M.</option>
+                    <option value="19"> 7 P.M. </option>
+                    <option value="20"> 8 P.M.</option>
+                    <option value="21"> 9 P.M.</option>
+                    <option value="22"> 10 P.M. </option>
+                    <option value="23"> 11 P.M.</option>
+                  </select>
+                </div>
+                <div class="input-field col s6">
+                  <select id="Light2_TurnOff_Minute">
+                    <option value="" disabled selected>Select The Minute</option>
+                    <option value="05"> 05</option>
+                    <option value="10"> 10</option>
+                    <option value="15"> 15</option>
+                    <option value="20"> 20</option>
+                    <option value="25"> 25</option>
+                    <option value="30"> 30</option>
+                    <option value="35"> 35</option>
+                    <option value="40"> 40</option>
+                    <option value="45"> 45</option>
+                    <option value="50"> 50</option>
+                    <option value="55"> 55</option>
+                  </select>
+                </div>
+              </p>
+              <br></br>
+              <h5>Lighting Cycle 3</h5>
+              <p>
+                <div class="switch">
+                  <label class= "text-black">
+                    Lights Off
+                    <input type="checkbox" id= "light3_on_off_actual">
+                    <span class="lever"></span>
+                    Lights On
+                  </label>
+                </div>
+                <div class="switch">
+                  <label>
+                    Manual Mode Off
+                    <input type="checkbox" id= "light3_manual_mode">
+                    <span class="lever"></span>
+                    Manual Mode On
+                  </label>
+                </div>
+              </p>              
+              <p> Time Lights Turn on:
+                <div class="input-field col s6">
+                  <select id= "Light3_TurnOn_Hour">
+                    <option value="" disabled selected>Select The Hour</option>
+                    <option value="24"> 12 A.M.</option>
+                    <option value="1"> 1 A.M. </option>
+                    <option value="2"> 2 A.M.</option>
+                    <option value="3"> 3 A.M.</option>
+                    <option value="4"> 4 A.M. </option>
+                    <option value="5"> 5 A.M.</option>
+                    <option value="6"> 6 A.M.</option>
+                    <option value="7"> 7 A.M. </option>
+                    <option value="8"> 8 A.M.</option>
+                    <option value="9"> 9 A.M.</option>
+                    <option value="10"> 10 A.M. </option>
+                    <option value="11"> 11 A.M.</option>
+                    <option value="12"> 12 P.M.</option>
+                    <option value="13"> 1 P.M. </option>
+                    <option value="14"> 2 P.M.</option>
+                    <option value="15"> 3 P.M.</option>
+                    <option value="16"> 4 P.M. </option>
+                    <option value="17"> 5 P.M.</option>
+                    <option value="18"> 6 P.M.</option>
+                    <option value="19"> 7 P.M. </option>
+                    <option value="20"> 8 P.M.</option>
+                    <option value="21"> 9 P.M.</option>
+                    <option value="22"> 10 P.M. </option>
+                    <option value="23"> 11 P.M.</option>
+                  </select>
+                </div>
+                <div class="input-field col s6">
+                  <select id= "Light3_TurnOn_Minute">
+                    <option value="" disabled selected>Select The Minute</option>
+                    <option value="05"> 05</option>
+                    <option value="10"> 10</option>
+                    <option value="15"> 15</option>
+                    <option value="20"> 20</option>
+                    <option value="25"> 25</option>
+                    <option value="30"> 30</option>
+                    <option value="35"> 35</option>
+                    <option value="40"> 40</option>
+                    <option value="45"> 45</option>
+                    <option value="50"> 50</option>
+                    <option value="55"> 55</option>
+                  </select>
+                </div>
+                <br></br>
+              </p>
+              <p> Time Lights Turn off:
+                <div class="input-field col s6">
+                  <select id= "Light3_TurnOff_Hour">
+                    <option value="" disabled selected>Select The Hour</option>
+                    <option value="24"> 12 A.M.</option>
+                    <option value="1"> 1 A.M. </option>
+                    <option value="2"> 2 A.M.</option>
+                    <option value="3"> 3 A.M.</option>
+                    <option value="4"> 4 A.M. </option>
+                    <option value="5"> 5 A.M.</option>
+                    <option value="6"> 6 A.M.</option>
+                    <option value="7"> 7 A.M. </option>
+                    <option value="8"> 8 A.M.</option>
+                    <option value="9"> 9 A.M.</option>
+                    <option value="10"> 10 A.M. </option>
+                    <option value="11"> 11 A.M.</option>
+                    <option value="12"> 12 P.M.</option>
+                    <option value="13"> 1 P.M. </option>
+                    <option value="14"> 2 P.M.</option>
+                    <option value="15"> 3 P.M.</option>
+                    <option value="16"> 4 P.M. </option>
+                    <option value="17"> 5 P.M.</option>
+                    <option value="18"> 6 P.M.</option>
+                    <option value="19"> 7 P.M. </option>
+                    <option value="20"> 8 P.M.</option>
+                    <option value="21"> 9 P.M.</option>
+                    <option value="22"> 10 P.M. </option>
+                    <option value="23"> 11 P.M.</option>
+                  </select>
+                </div>
+                <div class="input-field col s6">
+                  <select id= "Light3_TurnOff_Minute">
+                    <option value="" disabled selected>Select The Minute</option>
+                    <option value="05"> 05</option>
+                    <option value="10"> 10</option>
+                    <option value="15"> 15</option>
+                    <option value="20"> 20</option>
+                    <option value="25"> 25</option>
+                    <option value="30"> 30</option>
+                    <option value="35"> 35</option>
+                    <option value="40"> 40</option>
+                    <option value="45"> 45</option>
+                    <option value="50"> 50</option>
+                    <option value="55"> 55</option>
+                  </select>
+                </div>
+              </p>
+            </div>
+          </div>
+          <br></br>
+          <div class="section">
+            <div class="card-panel light-blue lighten-4 black-text">
+              <h5>Pots <i class="small material-icons">delete</i></h5></div>
+            <div class="section">
+              <center>
+                <div class="col s2"><a class="waves-effect waves-light btn light-blue lighten-4 black-text">1</a></div>
+                <div class="col s2"><a class="waves-effect waves-light btn light-blue lighten-4 black-text">2</a></div>
+                <div class="col s2"><a class="waves-effect waves-light btn light-blue lighten-4 black-text">3</a></div>
+                <div class="col s2"><a class="waves-effect waves-light btn light-blue lighten-4 black-text">4</a></div>
+                <div class="col s2"><a class="waves-effect waves-light btn light-blue lighten-4 black-text">5</a></div>
+                <div class="col s2"><a class="waves-effect waves-light btn light-blue lighten-4 black-text">6</a></div>
+              </center>
+        </center>
+        </div>
+        <br></br>
+        <br></br>
+        <center>
+          <div class="divider"></div>
+          <div class="section">
+            <h5>Water Level Sufficient</h5>
+            <p>
+            <form id="myform">
+              <div>
+                <label>No
+                  <input id="checkbox" type="checkbox">
+                  <span class="lever"></span> Yes
+                </label>
+              </div>
+            </form>
+            </p>
+          </div>
+          <div class="divider"></div>
+          <div class="section">
+            <h5>Ph Level</h5>
+            <p>
+              <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" disabled type="text" class="validate">
+                <label for="icon_prefix"></label>
+              </div>
+            </p>
+            <br></br>
+          </div>
+          <div class="divider"></div>
+          <div class="section">
+            <h5>Temperature</h5>
+            <p>
+              <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" disabled type="text" class="validate">
+                <label for="icon_prefix"></label>
+              </div>
+            </p>
+          </div>
+        </center>
+        </div>
       </div>
-
-      <div class="col s9">
-        <!-- Teal page content  -->
-      </div>
-
-  </div>
-  
+    </div>
 </body>
 </html>

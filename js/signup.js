@@ -5,19 +5,17 @@ function signup() {
     var email = document.getElementById("email").value;
     var state = document.getElementById("state").value;
     
-    var ref = new Firebase("https://popping-heat-9236.firebaseio.com/");
+    var ref = new Firebase("https://blinding-torch-889.firebaseio.com");
     ref.createUser({
-        username: username,
-        password: password,
         email: email,
-        state: state
+        password: password,
     }, function(error, userData) {
         if (error) {
             console.log("Error creating user:", error);
         } else {
             console.log("Successfully created user account with uid:", userData.uid);
             alert("Successfully Created Account!");
-            window.location = "https://senior-design-nate-pierotti.c9user.io/index.html";
+            window.location.assign("https://senior-design-nate-pierotti.c9users.io/login.html");
         }
     });
 }
