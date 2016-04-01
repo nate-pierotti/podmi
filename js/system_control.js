@@ -22,6 +22,18 @@ var myFirebaseRef = new Firebase("https://blinding-torch-889.firebaseio.com/");
     function fbUpdateLight1OnDesired(val) {
         myFirebaseRef.child("light1/on_desired").set(val);
     }
+	
+	function fbUpdateLight1Bloom(val) {
+		myFirebaseRef.child("light1/bloom").set(val);
+	}
+	
+	function fbUpdateLight1Grow(val) {
+		myFirebaseRef.child("light1/grow").set(val);
+	}
+	
+	function fbUpdateLight1Veg(val) {
+		myFirebaseRef.child("light1/veg").set(val);
+	}
     
     myFirebaseRef.child("light1/lightCycle/turnOnTime/hour").on("value", function(snapshot){
         var element = document.getElementById("Light1_TurnOn_Hour");
@@ -252,7 +264,6 @@ var myFirebaseRef = new Firebase("https://blinding-torch-889.firebaseio.com/");
         }
     });
     myFirebaseRef.child("light3/auto_manual").on("value", function(snapshot) {
-        window.alert(snapshot.val());
         if(snapshot.val() == "manual") {
             document.getElementById("light3_manual_mode").checked = true;
 
@@ -263,12 +274,10 @@ var myFirebaseRef = new Firebase("https://blinding-torch-889.firebaseio.com/");
     });
     myFirebaseRef.child("light3/on_actual").on("value", function(snapshot) {
         if(snapshot.val() == false) {
-            window.alert("false");
             document.getElementById("light3_on_off_actual").checked = false;
 
         } else if (snapshot.val() == true) {
-             window.alert("true");
-             document.getElementById("light3_on_off_actual").checked = true;
+            document.getElementById("light3_on_off_actual").checked = true;
         }
     });
     

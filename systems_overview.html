@@ -206,6 +206,23 @@
                   </label>
                 </div>
               </p>
+			  <div class="container">
+				<form action="#">
+				  Bloom:
+				  <p class="range-field">
+					<input type="range" id="light1_bloom" min="0" max="100" onchange="fbUpdateLight1Bloom(this.value)"/>
+			      </p>
+				  Grow:
+				  <p class="range-field">
+					<input type="range" id="light1_grow" min="0" max="100" onchange="fbUpdateLight1Grow(this.value)"/>
+			      </p>
+				  Veg:
+				  <p class="range-field">
+					<input type="range" id="light1_veg" min="0" max="100" onchange="fbUpdateLight1Veg(this.value)"/>
+			      </p>
+				</form>
+				
+			  </div>
               <p> Time Lights Turn on:
                 <div class="input-field col s6">
                   <select id="Light1_TurnOn_Hour" onchange="fbUpdateLight1OnHour(this.value)">
