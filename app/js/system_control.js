@@ -1,5 +1,8 @@
 var rootRef = new Firebase("https://blinding-torch-889.firebaseio.com/");
 
+var authData = rootRef.getAuth();
+var userRef = rootRef.child(authData.uid);
+
     /*rootRef.child("current").on("value", function(snapshot) {
         if(snapshot.val() == 1) {
             document.getElementById("waterLevelCheckBox").checked = true;
@@ -8,10 +11,19 @@ var rootRef = new Firebase("https://blinding-torch-889.firebaseio.com/");
         }
     });*/
     
-    // Populate the systems list
-    rootRef
     
-    $("#system-list")
+    // Populate the systems list:
+    //  -- child_added is triggered once for each existing child and then again
+    //     every time a new child is added to the specified path
+    console.log(userRef.child("74:da:38:41:fc:47").key());
+    userRef.on("child_added", function(snapshot) {
+      console.log("check check");
+      var newChild = snapshot.val();
+      console.log(newChild);
+      $("ul#system-list").append('<li>' + newChild + '<li>');
+    });
+    
+    //$("#system-list");
     
     
     rootRef.child("light1/on_actual").on("value", function(snapshot) {
