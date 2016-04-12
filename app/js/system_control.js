@@ -15,19 +15,16 @@ var userRef = ref.child(authData.uid);
     // Populate the systems list:
     //  -- child_added is triggered once for each existing child and then again
     //     every time a new child is added to the specified path
-    //ref.on("child_added", function(snap) {
-    //  console.log("check check check");
-    //});
-    
-    userRef.on("child_added", function(snapshot, prevChildKey) {
-      console.log("check check");
-      var newChild = snapshot.val();
-      console.log(newChild);
-      $("ul#system-list").append('<li>' + newChild + '<li>');
+    //  -- select the first system in the list by default
+    var count = 0;
+    userRef.on("child_added", function(snapshot) {
+      var newChild = snapshot.key();
+      if (count != 0) {
+        $("div#system-list").append('<a class="collection-item white black-text" onclick="switchSystems(this)">' + newChild + '</a>');
+      } else if (count == 0) {
+        $("div#system-list").append('<a class="collection-item white black-text active" onclick="switchSystems(this)">' + newChild + '</a>');
+      }
     });
-    
-    //$("#system-list");
-    
     
     ref.child("light1/on_actual").on("value", function(snapshot) {
         var element = document.getElementById("light1_on_off_actual_switch");
@@ -417,4 +414,8 @@ function testFunction(cb) {
         //alert("not checked!")
         ref.child("current").set(0);
     }
+}
+
+function switchSystems(sys) {
+  $(sys).addClass("active");
 }
