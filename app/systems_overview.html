@@ -2,16 +2,13 @@
 <html lang="en">
 
 <head>
+  <!-- Load verification script before page load -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script src='https://cdn.firebase.com/js/client/2.4.1/firebase.js'></script>
-  <script src='js/system_control.js'></script>
-  <script src='js/test.js'></script>
-  <script>
-    $(document).ready(function() {
-      $('select').material_select();
-    });
-  </script>
+  <script src='js/verification.js'></script>
+  
+  <!-- meta tags -->
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
   <title>Parallax Template - Materialize</title>
@@ -24,9 +21,9 @@
 </head>
 
 <body background = "podmi-background.jpg">
-  <nav class="black light-green-text accent-1" role="navigation">
-    <div class="nav-wrapper container light-green-text accent-1 ">
-      <a id="logo-container" href="https://senior-design-nate-pierotti.c9users.io/index.html" class="brand-logo light-green-text accent-1">Podmi</a>
+  <nav class="blue-grey darken-3" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="https://senior-design-nate-pierotti.c9users.io/index.html" class="brand-logo green-text darken-4">Podmi</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="sass.html"><i class="material-icons">search</i></a></li>
         <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
@@ -47,7 +44,7 @@
   <div class="row">
     <div class="col s3">
       <!-- Grey navigation panel -->
-      <div class="collection light-green accent-1">
+      <div class="collection light-green accent-1" id="system-list">
         <a href="#!" class="collection-item white black-text">System 1</a>
         <a href="#!" class="collection-item active white black-text">System 2</a>
       </div>
@@ -62,54 +59,60 @@
           <div class="section">
             <h5> Add a New System     <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a></h5>
             <br></br>
-            <div class="card-panel light-blue lighten-4 black-text">
+            <div class="card-panel blue-grey darken-3 green-text darken-4">
               <h5>System Overview <i class="small material-icons">language</i></h5></div>
             <p>Total Current Draw:</p>
             <br></br>
             <p> How Green is Your System?</p>
           </div>
           <div class="divider"></div>
-          <div class="divider"></div>
-          <div class="section">
-            <div class="card-panel light-blue lighten-4 black-text" background= "water-background.jpg">
-              <h5> Water Cycles <i class="small material-icons">loop</i></h5></div>
-            <br></br>
-            <h5>Watering Cycle 1</h5>
-            <p>
-              <div class="input-field col s6">
-                <select id="watering_cycle1_duration">>
-                  <option value="" disabled selected>Select The Watering Duration</option>
-                  <option value="5">5 Minutes</option>
-                  <option value="10">10 Minutes</option>
-                  <option value="15">15 Minutes</option>
-                  <option value="20">20 Minutes</option>
-                  <option value="25">25 Minutes</option>
-                  <option value="30">30 Minutes</option>
-                  <option value="35">35 Minutes</option>
-                  <option value="40">40 Minutes</option>
-                  <option value="45">45 Minutes</option>
-                  <option value="50">50 Minutes</option>
-                  <option value="55">55 Minutes</option>
-                </select>
+          <div class="section>">
+          <div class="col s6">
+            <div class="section">
+            <div class="card-panel blue-grey darken-3 green-text darken-4" background= "water-background.jpg">
+              <h5> Water Cycles <i class="small material-icons">loop</i></h5>
               </div>
-              <div class="input-field col s6">
-                <select id= "watering_cycle1_frequency">>
-                  <option value="" disabled selected>Select The Frequency</option>
-                  <option value="5"> Every 15 Minutes</option>
-                  <option value="10"> Every 30 Minutes</option>
-                  <option value="15"> Every 45 Minutes</option>
-                  <option value="20"> Every Hour</option>
-                  <option value="25"> Every Hour And 15 Minutes</option>
-                  <option value="30"> Every Hour And a Half</option>
-                  <option value="35"> Every Hour and 45 Minutes</option>
-                  <option value="40"> Every 2 Hours</option>
-                  <option value="45"> Every 3 Hours</option>
-                  <option value="50"> Every 4 Hours</option>
-                  <option value="55"> Every 5 </option>
-                </select>
-              </div>
+           <ul class="collapsible" data-collapsible="accordion">
+           <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Watering Cycle 1</div>
+            <div class="collapsible-body">
+              <p>
+                <div class="input-field col s6">
+                  <select id="watering_cycle1_duration">>
+                    <option value="" disabled selected>Select The Watering Duration</option>
+                    <option value="5">5 Minutes</option>
+                    <option value="10">10 Minutes</option>
+                    <option value="15">15 Minutes</option>
+                    <option value="20">20 Minutes</option>
+                    <option value="25">25 Minutes</option>
+                    <option value="30">30 Minutes</option>
+                    <option value="35">35 Minutes</option>
+                    <option value="40">40 Minutes</option>
+                    <option value="45">45 Minutes</option>
+                    <option value="50">50 Minutes</option>
+                    <option value="55">55 Minutes</option>
+                  </select>
+                </div>
+                <div class="input-field col s6">
+                  <select id= "watering_cycle1_frequency">>
+                    <option value="" disabled selected>Select The Frequency</option>
+                    <option value="5"> Every 15 Minutes</option>
+                    <option value="10"> Every 30 Minutes</option>
+                    <option value="15"> Every 45 Minutes</option>
+                    <option value="20"> Every Hour</option>
+                    <option value="25"> Every Hour And 15 Minutes</option>
+                    <option value="30"> Every Hour And a Half</option>
+                    <option value="35"> Every Hour and 45 Minutes</option>
+                    <option value="40"> Every 2 Hours</option>
+                    <option value="45"> Every 3 Hours</option>
+                    <option value="50"> Every 4 Hours</option>
+                    <option value="55"> Every 5 </option>
+                  </select>
+                </div>
             </p>
-           <h5>Watering Cycle 2</h5>
+           <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Watering Cycle 2</div>
+            <div class="collapsible-body">
             <p>
               <div class="input-field col s6">
                 <select id= "watering_cycle2_duration">
@@ -144,7 +147,9 @@
                 </select>
               </div>
             </p>
-            <h5>Watering Cycle 3</h5>
+           <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Watering Cycle 3</div>
+            <div class="collapsible-body">
             <p>
               <div class="input-field col s6">
                 <select id= "watering_cycle3_duration">>
@@ -179,20 +184,25 @@
                 </select>
               </div>
             </p>
-            <br></br>            
-          </div>
-          <div class="divider"></div>
+            </div>
+            </li>
+           </ul>
+        </div>
+        </div>
+        <div class="col s6">
           <div class="section">
-            <div class="card-panel light-blue lighten-4 black-text">
+            <div class="card-panel blue-grey darken-3 green-text darken-4">
               <h5>Light Cycles <i class="small material-icons">loop</i></h5>
             </div>
-            <div class="section">
-              <h5>Lighting Cycle 1</h5>
+          <ul class="collapsible" data-collapsible="accordion">
+           <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Lighting Cycle 1</div>
+            <div class="collapsible-body">
               <p>
                 <div class="switch">
                   <label class= "text-black">
                     Lights Off
-                    <input type="checkbox" id="light1_on_off_actual_switch" onchange="fbUpdateLight1OnDesired(this.checked)">
+                    <input type="checkbox" id="light1_on_off_actual_switch" onchange="updateLight1OnDesired(this.checked)">
                     <span class="lever"></span>
                     Lights On
                   </label>
@@ -206,26 +216,25 @@
                   </label>
                 </div>
               </p>
-			  <div class="container">
-				<form action="#">
-				  Bloom:
-				  <p class="range-field">
-					<input type="range" id="light1_bloom" min="0" max="100" onchange="fbUpdateLight1Bloom(this.value)"/>
-			      </p>
-				  Grow:
-				  <p class="range-field">
-					<input type="range" id="light1_grow" min="0" max="100" onchange="fbUpdateLight1Grow(this.value)"/>
-			      </p>
-				  Veg:
-				  <p class="range-field">
-					<input type="range" id="light1_veg" min="0" max="100" onchange="fbUpdateLight1Veg(this.value)"/>
-			      </p>
-				</form>
-				
-			  </div>
+          			  <div class="container">
+          				<form action="#">
+          				  Bloom:
+          				  <p class="range-field">
+          					<input type="range" id="light1_bloom" min="0" max="100" onchange="updateLight1Bloom(this.value)"/>
+          			      </p>
+          				  Grow:
+          				  <p class="range-field">
+          					<input type="range" id="light1_grow" min="0" max="100" onchange="updateLight1Grow(this.value)"/>
+          			      </p>
+          				  Veg:
+          				  <p class="range-field">
+          					<input type="range" id="light1_veg" min="0" max="100" onchange="updateLight1Veg(this.value)"/>
+          			      </p>
+          				</form>
+          			  </div>
               <p> Time Lights Turn on:
                 <div class="input-field col s6">
-                  <select id="Light1_TurnOn_Hour" onchange="fbUpdateLight1OnHour(this.value)">
+                  <select id="Light1_TurnOn_Hour" onchange="updateLight1OnHour(this.value)">
                     <option value="" disabled selected>Select The Hour</option>
                     <option value="24"> 12 A.M.</option>
                     <option value="1"> 1 A.M. </option>
@@ -254,7 +263,7 @@
                   </select>
                 </div>
                 <div class="input-field col s6">
-                  <select id= "Light1_TurnOn_Minute" onchange="fbUpdateLight1OnMinute(this.value)">
+                  <select id= "Light1_TurnOn_Minute" onchange="updateLight1OnMinute(this.value)">
                     <option value="" disabled selected>Select The Minute</option>
                     <option value="5"> 05</option>
                     <option value="10"> 10</option>
@@ -273,7 +282,7 @@
               </p>
               <p> Time Lights Turn off:
                 <div class="input-field col s6">
-                  <select id="Light1_TurnOff_Hour" onchange="fbUpdateLight1OffHour(this.value)">
+                  <select id="Light1_TurnOff_Hour" onchange="updateLight1OffHour(this.value)">
                     <option value="" disabled selected>Select The Hour</option>
                     <option value="24"> 12 A.M.</option>
                     <option value="1"> 1 A.M. </option>
@@ -302,7 +311,7 @@
                   </select>
                 </div>
                 <div class="input-field col s6">
-                  <select id= "Light1_TurnOff_Minute" onchange="fbUpdateLight1OffMinute(this.value)">
+                  <select id= "Light1_TurnOff_Minute" onchange="updateLight1OffMinute(this.value)">
                     <option value="" disabled selected>Select The Minute</option>
                     <option value="5"> 05</option>
                     <option value="10"> 10</option>
@@ -318,8 +327,11 @@
                   </select>
                 </div>
               </p>
-              <br></br>
-              <h5>Lighting Cycle 2</h5>
+               </div>
+              </li>
+           <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Lighting Cycle 2</div>
+            <div class="collapsible-body">
               <p>
                 <div class="switch">
                   <label class= "text-black">
@@ -337,7 +349,23 @@
                     Manual Mode On
                   </label>
                 </div>
-              </p>              
+              </p> 
+        			  <div class="container">
+        				<form action="#">
+        				  Bloom:
+        				  <p class="range-field">
+        					<input type="range" id="light1_bloom" min="0" max="100" onchange="updateLight1Bloom(this.value)"/>
+        			      </p>
+        				  Grow:
+        				  <p class="range-field">
+        					<input type="range" id="light1_grow" min="0" max="100" onchange="updateLight1Grow(this.value)"/>
+        			      </p>
+        				  Veg:
+        				  <p class="range-field">
+        					<input type="range" id="light1_veg" min="0" max="100" onchange="updateLight1Veg(this.value)"/>
+        			      </p>
+        				</form>
+        			  </div>              
               <p> Time Lights Turn on:
                 <div class="input-field col s6">
                   <select id= "Light2_TurnOn_Hour">
@@ -433,8 +461,11 @@
                   </select>
                 </div>
               </p>
-              <br></br>
-              <h5>Lighting Cycle 3</h5>
+              </div>
+              </li>
+               <li>
+                <div class="collapsible-header"><i class="material-icons">filter_drama</i>Lighting Cycle 3</div>
+                <div class="collapsible-body">              
               <p>
                 <div class="switch">
                   <label class= "text-black">
@@ -452,7 +483,23 @@
                     Manual Mode On
                   </label>
                 </div>
-              </p>              
+              </p>
+        			  <div class="container">
+        				<form action="#">
+        				  Bloom:
+        				  <p class="range-field">
+        					<input type="range" id="light1_bloom" min="0" max="100" onchange="updateLight1Bloom(this.value)"/>
+        			      </p>
+        				  Grow:
+        				  <p class="range-field">
+        					<input type="range" id="light1_grow" min="0" max="100" onchange="updateLight1Grow(this.value)"/>
+        			      </p>
+        				  Veg:
+        				  <p class="range-field">
+        					<input type="range" id="light1_veg" min="0" max="100" onchange="updateLight1Veg(this.value)"/>
+        			      </p>
+        				</form>
+        			  </div>                
               <p> Time Lights Turn on:
                 <div class="input-field col s6">
                   <select id= "Light3_TurnOn_Hour">
@@ -548,66 +595,104 @@
                   </select>
                 </div>
               </p>
+                </div>
+              </li>
+             </ul>
             </div>
           </div>
-          <br></br>
-          <div class="section">
-            <div class="card-panel light-blue lighten-4 black-text">
-              <h5>Pots <i class="small material-icons">delete</i></h5></div>
+          </div>
+          <div class="col s12">
             <div class="section">
-              <center>
-                <div class="col s2"><a class="waves-effect waves-light btn light-blue lighten-4 black-text">1</a></div>
-                <div class="col s2"><a class="waves-effect waves-light btn light-blue lighten-4 black-text">2</a></div>
-                <div class="col s2"><a class="waves-effect waves-light btn light-blue lighten-4 black-text">3</a></div>
-                <div class="col s2"><a class="waves-effect waves-light btn light-blue lighten-4 black-text">4</a></div>
-                <div class="col s2"><a class="waves-effect waves-light btn light-blue lighten-4 black-text">5</a></div>
-                <div class="col s2"><a class="waves-effect waves-light btn light-blue lighten-4 black-text">6</a></div>
-              </center>
-        </center>
-        </div>
-        <br></br>
-        <br></br>
-        <center>
-          <div class="divider"></div>
-          <div class="section">
-            <h5>Water Level Sufficient</h5>
-            <p>
-            <form id="myform">
-              <div>
-                <label>No
-                  <input id="checkbox" type="checkbox">
-                  <span class="lever"></span> Yes
-                </label>
-              </div>
-            </form>
-            </p>
+              <div class="card-panel blue-grey darken-3 green-text darken-4">
+                <h5>Pots <i class="small material-icons">delete</i></h5>
+               </div>
+            </div>
+            <div class="col s12">
+                <ul class="collapsible" data-collapsible="accordion">
+                  <li>
+                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Pot 1</div>
+                    <div class="collapsible-body">
+                      <div class="row">
+                        <div class="col s12 m6 l3"><p>PH Level:</p><p id="pot1_PhLevel"> 102</p></div>
+                        <div class="col s12 m6 l3"><p>Waterer:</p><p id="pot1_Waterer"> 2 </p></div>
+                        <div class="col s12 m6 l3"><p>Light:</p><p id="pot1_light"> 1 </p></div>
+                        <div class="col s12 m6 l3"><p>Temperature:</p><p id="pot1_Temperaturel"> 10 </p></div>
+                      </div>              
+                    </div>
+                  </li>
+                  <li>
+                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Pot 2</div>
+                    <div class="collapsible-body">
+                      <div class="row">
+                        <div class="col s12 m6 l3"><p>PH Level:</p><p id="pot2_PhLevel"> 102</p></div>
+                        <div class="col s12 m6 l3"><p>Waterer:</p><p id="pot2_Waterer"> 2 </p></div>
+                        <div class="col s12 m6 l3"><p>Light:</p><p id="pot2_light"> 1 </p></div>
+                        <div class="col s12 m6 l3"><p>Temperature:</p><p id="pot2_Temperaturel"> 10 </p></div>
+                      </div>   
+                    </div>
+                  </li>
+                  <li>
+                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Pot 3</div>
+                    <div class="collapsible-body">
+                      <div class="row">
+                        <div class="col s12 m6 l3"><p>PH Level:</p><p id="pot3_PhLevel"> 102</p></div>
+                        <div class="col s12 m6 l3"><p>Waterer:</p><p id="pot3_Waterer"> 2 </p></div>
+                        <div class="col s12 m6 l3"><p>Light:</p><p id="pot3_light"> 1 </p></div>
+                        <div class="col s12 m6 l3"><p>Temperature:</p><p id="pot3_Temperaturel"> 10 </p></div>
+                      </div>   
+                    </div>
+                  </li>
+                  <li>
+                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Pot 4</div>
+                    <div class="collapsible-body">
+                      <div class="row">
+                        <div class="col s12 m6 l3"><p>PH Level:</p><p id="pot4_PhLevel"> 102</p></div>
+                        <div class="col s12 m6 l3"><p>Waterer:</p><p id="pot4_Waterer"> 2 </p></div>
+                        <div class="col s12 m6 l3"><p>Light:</p><p id="pot4_light"> 1 </p></div>
+                        <div class="col s12 m6 l3"><p>Temperature:</p><p id="pot4_Temperaturel"> 10 </p></div>
+                      </div>                       
+                    </div>
+                  </li>
+                  <li>
+                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Pot 5</div>
+                    <div class="collapsible-body">
+                      <div class="row">
+                        <div class="col s12 m6 l3"><p>PH Level:</p><p id="pot5_PhLevel"> 102</p></div>
+                        <div class="col s12 m6 l3"><p>Waterer:</p><p id="pot5_Waterer"> 2 </p></div>
+                        <div class="col s12 m6 l3"><p>Light:</p><p id="pot5_light"> 1 </p></div>
+                        <div class="col s12 m6 l3"><p>Temperature:</p><p id="pot5_Temperaturel"> 10 </p></div>
+                      </div>   
+                    </div>
+                  </li>
+                  <li>
+                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Pot 6</div>
+                    <div class="collapsible-body">
+                      <div class="row">
+                        <div class="col s12 m6 l3"><p>PH Level:</p><p id="pot6_PhLevel"> 102</p></div>
+                        <div class="col s12 m6 l3"><p>Waterer:</p><p id="pot6_Waterer"> 2 </p></div>
+                        <div class="col s12 m6 l3"><p>Light:</p><p id="pot6_light"> 1 </p></div>
+                        <div class="col s12 m6 l3"><p>Temperature:</p><p id="pot6_Temperaturel"> 10 </p></div>
+                      </div>   
+                    </div>
+                  </li>                  
+                </ul>
+            </div>             
           </div>
-          <div class="divider"></div>
-          <div class="section">
-            <h5>Ph Level</h5>
-            <p>
-              <div class="input-field col s6">
-                <i class="material-icons prefix">account_circle</i>
-                <input id="icon_prefix" disabled type="text" class="validate">
-                <label for="icon_prefix"></label>
-              </div>
-            </p>
-            <br></br>
-          </div>
-          <div class="divider"></div>
-          <div class="section">
-            <h5>Temperature</h5>
-            <p>
-              <div class="input-field col s6">
-                <i class="material-icons prefix">account_circle</i>
-                <input id="icon_prefix" disabled type="text" class="validate">
-                <label for="icon_prefix"></label>
-              </div>
-            </p>
-          </div>
-        </center>
         </div>
       </div>
     </div>
+  
+  <!-- Scripts -->  
+  <script src='js/system_control.js'></script>
+  <script>
+    $(document).ready(function() {
+      $('select').material_select();
+    });
+    $(document).ready(function(){
+    $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+  });
+  </script>
 </body>
 </html>

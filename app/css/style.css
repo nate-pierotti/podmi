@@ -55,3 +55,8 @@ p {
 footer.page-footer {
   margin: 0;
 }
+
+a.active {
+  /* color: blue; */
+  font-weight: bolder;
+}

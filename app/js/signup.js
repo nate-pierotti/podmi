@@ -15,7 +15,7 @@ function signup() {
         } else {
             console.log("Successfully created user account with uid:", userData.uid);
             alert("Successfully Created Account!");
-            window.location.assign("https://senior-design-nate-pierotti.c9users.io/login.html");
+            window.location.assign("https://blinding-torch-889.firebaseapp.com/login.html");
         }
     });
 }

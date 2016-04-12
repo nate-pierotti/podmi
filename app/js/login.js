@@ -13,8 +13,8 @@ function login() {
             
             window.alert("Login Failed");
         } else {
-            window.alert("successful");
-            window.location.assign("https://senior-design-nate-pierotti.c9users.io/user.homepage.html");
+            Materialize.toast('Logging in...', 4000);
+            window.location.assign("https://blinding-torch-889.firebaseapp.com/user.homepage.html");
         }
     });
 }
